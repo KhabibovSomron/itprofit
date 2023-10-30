@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ITProfit</title>
+</head>
+<body>
+    <div class="root">
+        <div class="form-box">
+            <form action="" name="FormFill">
+                <h2>Форма</h2>
+
+                <div class="input-box">
+                    <input type="text" name="Username" placeholder="Имя">
+                </div>
+                <p class="hidden" id="username-error"></p>
+
+                <div class="input-box">
+                    <input type="email" name="Email" placeholder="Электронная почта">
+                </div>
+                <p class="hidden" id="email-error"></p>
+
+                <div class="input-box">
+                    <input type="text" name="Phone" placeholder="Номер телефона">
+                </div>
+                <p class="hidden" id="phone-error">Error message</p>
+
+                <div class="input-box">
+                    <textarea id="message" name="Message" placeholder="Сообщение"></textarea>
+                </div>
+                <p class="hidden" id="message-error">Error message</p>
+
+                <div class="button">
+                    <input type="submit" value="Отправить" class="btn">
+                </div>
+                <div class="button">
+                    <input name="modal-btn" type="button" value="Модальное окно" class="btn">
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-box">
+            <h2 id="modal-header">Модальное окно</h2>
+            <p id="modal-content">Created by Somron Khabibov</p>
+        </div>
+    </div>
+</body>
+</html>

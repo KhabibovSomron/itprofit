@@ -1,0 +1,160 @@
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+%flex-center-template {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overflow-disabled {
+  overflow-y: hidden;
+}
+
+.root {
+  max-width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  color: white;
+  @extend %flex-center-template;
+  background: url("assets/background-image1.jpg") no-repeat center;
+  background-size: cover;
+
+
+  .form-box {
+    position: relative;
+    width: 400px;
+    padding: 50px 0;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    @extend %flex-center-template;
+    flex-direction: column;
+
+    h2 {
+      color: #fff;
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .input-box {
+      position: relative;
+      width: 310px;
+      border-bottom: 2px solid #fff;
+      margin-top: 20px;
+
+      input, textarea {
+        width: 100%;
+        height: 45px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding: 0 20px 0 5px;
+        color: #fff;
+        font-size: 16px;
+
+        &::placeholder {
+          color: white;
+        }
+
+      }
+
+
+      textarea {
+        height: 70px;
+        resize: none;
+      }
+    }
+
+    .input-box-error {
+      border-color: red;
+    }
+
+    .btn {
+      color: #fff;
+      background-color: blue;
+      width: 100%;
+      height: 50px;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+      font-size: 17px;
+      cursor: pointer;
+      box-shadow: 3px 0 10px rgba(0, 0, 255, 0.5);
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .hidden {
+      opacity: 0;
+    }
+
+    .error-label {
+      color: red;
+      font-weight: 600;
+      position: relative;
+      margin-top: 5px;
+    }
+
+    .error-content::after {
+      content: "Заполните поле"
+    }
+
+    .error-email-content::after {
+      content: "Неправильный адрес электронной почты"
+    }
+
+    .last-child-label {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background-color: rgba(255,255,255, 0.3);
+  @extend %flex-center-template;
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .4s ease-in-out, visibility .4s ease-in-out;
+
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .modal-box {
+    max-width: 500px;
+    padding: 45px;
+    z-index: 11;
+    background-color: white;
+    border-radius: 20px;
+    margin: 30px 15px;
+    transform: scale(0);
+    transition: transform .8s ease-in-out;
+
+    h2 {
+      width: 100%;
+      text-align: center;
+    }
+    p {
+      margin: 20px 0;
+    }
+  }
+}
+
+.modal.open .modal-box {
+  transform: scale(1);
+}
